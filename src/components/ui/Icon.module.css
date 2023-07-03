@@ -11,6 +11,11 @@
   align-items: center;
 }
 
+.menu {
+  color: var(--black-500);
+  font-size: var(--font-300);
+}
+
 .mark {
   position: absolute;
   top: 1rem;
