@@ -36,7 +36,7 @@ export default function Navbar() {
       <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
       <nav className={styles.nav}>
         <div className={styles.left}>
-          <Icon onClick={handleSidebarOpen} color='black'>
+          <Icon onClick={handleSidebarOpen}>
             <BsListNested />
           </Icon>
           <Link to='/' className={styles.home}>

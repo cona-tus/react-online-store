@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-300);
 }
 
 .mark {
@@ -17,6 +16,7 @@
   top: 1rem;
   right: 1rem;
   color: var(--black-500);
+  font-size: var(--font-300);
 }
 
 .close {
@@ -24,4 +24,10 @@
   top: 1rem;
   right: 1rem;
   color: var(--color-white);
+  font-size: var(--font-300);
+}
+
+.bag {
+  color: var(--black-500);
+  font-size: var(--font-100);
 }

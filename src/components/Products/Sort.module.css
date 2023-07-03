@@ -21,6 +21,7 @@
 .button {
   cursor: pointer;
   font-size: var(--font-100);
+  color: var(--black-500);
 }
 
 .options {
@@ -37,6 +38,7 @@
 .option {
   cursor: pointer;
   font-size: var(--font-100);
+  color: var(--black-500);
 }
 
 .option:hover {

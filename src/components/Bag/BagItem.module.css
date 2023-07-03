@@ -17,20 +17,16 @@
 }
 
 .image img {
+  cursor: pointer;
   width: 100%;
   display: block;
   object-fit: cover;
 }
 
 .title {
-  cursor: pointer;
   font-size: var(--font-200);
   font-weight: var(--weight-700);
   text-transform: uppercase;
-}
-
-.title:hover {
-  opacity: 0.5;
 }
 
 .price,
@@ -49,21 +45,6 @@
   font-size: var(--font-300);
   font-weight: var(--weight-500);
   margin: 0 1rem;
-}
-
-.button,
-.count {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: var(--font-100);
 }
 
 @media (max-width: 680px) {

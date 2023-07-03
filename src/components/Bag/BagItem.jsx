@@ -1,7 +1,7 @@
 import React from 'react';
 import useBag from '../../hooks/useBag';
 import { useNavigate } from 'react-router-dom';
-
+import Icon from '../ui/Icon';
 import styles from './BagItem.module.css';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { VscChromeClose } from 'react-icons/vsc';
@@ -28,37 +28,30 @@ export default function BagItem({
 
   return (
     <li className={styles.item}>
-      <button className={styles.button} onClick={handleRemove}>
-        <span className={styles.icon}>
-          <VscChromeClose />
-        </span>
-      </button>
+      <Icon onClick={handleRemove} option='bag'>
+        <VscChromeClose />
+      </Icon>
       <div className={styles.image}>
-        <img src={image} alt={title} />
+        <img
+          src={image}
+          alt={title}
+          onClick={() => {
+            navigate(`/products/${id}`, {
+              state: { product },
+            });
+          }}
+        />
       </div>
-      <h3
-        className={styles.title}
-        onClick={() => {
-          navigate(`/products/${id}`, {
-            state: { product },
-          });
-        }}
-      >
-        {title}
-      </h3>
+      <h3 className={styles.title}>{title}</h3>
       <p className={styles.price}>{`₩ ${price.toLocaleString()}`}</p>
       <div className={styles.quantity}>
-        <button className={styles.count} onClick={handleMinus}>
-          <span className={styles.icon}>
-            <AiOutlineMinus />
-          </span>
-        </button>
+        <Icon onClick={handleMinus} option='bag'>
+          <AiOutlineMinus />
+        </Icon>
         <span className={styles.num}>{quantity}</span>
-        <button className={styles.count} onClick={handlePlus}>
-          <span className={styles.icon}>
-            <AiOutlinePlus />
-          </span>
-        </button>
+        <Icon onClick={handlePlus} option='bag'>
+          <AiOutlinePlus />
+        </Icon>
       </div>
       <p className={styles.subtotal}>{`₩ ${(
         price * quantity
