@@ -66,7 +66,7 @@ export default function ProductCard({
             }}
           />
         </div>
-        <Icon onClick={hasId ? handleRemove : handleAdd} style='mark'>
+        <Icon onClick={hasId ? handleRemove : handleAdd} option='mark'>
           {hasId ? <BsBookmarkFill /> : <BsBookmark />}
         </Icon>
         <div className={styles.info}>

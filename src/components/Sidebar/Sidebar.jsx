@@ -21,7 +21,7 @@ export default function Sidebar({ isOpen, onClose }) {
     <>
       {isOpen && <Overlay onClose={onClose} />}
       <aside className={sidebarClasses}>
-        <Icon onClick={onClose} style='close'>
+        <Icon onClick={onClose} option='close'>
           <VscChromeClose />
         </Icon>
         <ul className={styles.links}>
