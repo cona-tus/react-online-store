@@ -1,0 +1,44 @@
+.sort {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--black-500);
+}
+
+.result {
+  font-size: var(--font-100);
+}
+
+.num {
+  margin-right: 0.25rem;
+  font-weight: var(--weight-700);
+}
+
+.button {
+  cursor: pointer;
+  font-size: var(--font-100);
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 1rem;
+  background-color: var(--color-white);
+  z-index: 2;
+  text-align: end;
+  border: 1px solid var(--black-500);
+}
+
+.option {
+  cursor: pointer;
+  font-size: var(--font-100);
+}
+
+.option:hover {
+  opacity: 0.5;
+}

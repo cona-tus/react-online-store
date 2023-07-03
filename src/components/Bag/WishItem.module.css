@@ -1,0 +1,32 @@
+.item {
+  position: relative;
+}
+
+.item img {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.button {
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: var(--gray-500);
+}
+
+.button:hover {
+  background-color: var(--color-white);
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,27 @@
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-300);
+}
+
+.mark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--black-500);
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--color-white);
+}

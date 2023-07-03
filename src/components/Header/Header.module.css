@@ -1,0 +1,32 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  margin-bottom: 6rem;
+  background-color: var(--black-500);
+}
+
+.path {
+  width: 85%;
+  color: var(--color-white);
+  font-size: var(--font-200);
+}
+
+@media (max-width: 820px) {
+  .path {
+    width: 90%;
+  }
+}
+
+@media (max-width: 680px) {
+  .header {
+    padding: 3rem 0;
+    margin-bottom: 4rem;
+  }
+
+  .path {
+    font-size: var(--font-100);
+  }
+}
