@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
 import { link } from '../../util/link';
+import Icon from '../ui/Icon';
 import styles from './Sidebar.module.css';
 import { VscChromeClose } from 'react-icons/vsc';
-import Icon from '../ui/Icon';
 
 const Overlay = ({ onClose }) => {
   return <div className={styles.overlay} onClick={onClose}></div>;

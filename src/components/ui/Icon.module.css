@@ -36,3 +36,20 @@
   color: var(--black-500);
   font-size: var(--font-100);
 }
+
+.wish {
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: var(--gray-500);
+  font-size: var(--font-100);
+}
+
+.wish:hover {
+  background-color: var(--color-white);
+}

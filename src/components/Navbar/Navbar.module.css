@@ -46,6 +46,7 @@
 }
 
 .button {
+  cursor: pointer;
   color: var(--black-500);
   font-family: 'Montserrat', sans-serif;
   font-size: var(--font-200);

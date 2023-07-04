@@ -1,6 +1,6 @@
 import React from 'react';
-import useBag from '../../hooks/useBag';
 import { useNavigate } from 'react-router-dom';
+import useBag from '../../hooks/useBag';
 import Icon from '../ui/Icon';
 import styles from './BagItem.module.css';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
@@ -14,16 +14,16 @@ export default function BagItem({
   const navigate = useNavigate();
 
   const handleRemove = () => {
-    removeBagItem.mutate(product.id);
+    removeBagItem.mutate(id);
   };
 
   const handleMinus = () => {
-    if (product.quantity < 2) return;
-    addOrUpdateBagItem.mutate({ ...product, quantity: product.quantity - 1 });
+    if (quantity < 2) return;
+    addOrUpdateBagItem.mutate({ ...product, quantity: quantity - 1 });
   };
 
   const handlePlus = () => {
-    addOrUpdateBagItem.mutate({ ...product, quantity: product.quantity + 1 });
+    addOrUpdateBagItem.mutate({ ...product, quantity: quantity + 1 });
   };
 
   return (

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper';
 import useProducts from '../../hooks/useProducts';
 import Modal from '../../components/ui/Modal';
-import styles from './HomeSlider.module.css';
-import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import styles from './HomeSlider.module.css';
+import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 
 export default function HomeSlider() {
   const {

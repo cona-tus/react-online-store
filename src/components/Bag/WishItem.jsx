@@ -1,8 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useWish from '../../hooks/useWish';
+import Icon from '../ui/Icon';
 import styles from './WishItem.module.css';
 import { VscChromeClose } from 'react-icons/vsc';
-import { useNavigate } from 'react-router-dom';
 
 export default function WishItem({ product: { image, title, id }, product }) {
   const { removeWishItem } = useWish();
@@ -21,11 +22,9 @@ export default function WishItem({ product: { image, title, id }, product }) {
           navigate(`/products/${id}`, { state: { product: product } });
         }}
       />
-      <button className={styles.button} onClick={handleRemove}>
-        <span className={styles.icon}>
-          <VscChromeClose />
-        </span>
-      </button>
+      <Icon onClick={handleRemove} option='wish'>
+        <VscChromeClose />
+      </Icon>
     </li>
   );
 }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useWish from '../../hooks/useWish';
+import { useAuthContext } from '../../context/AuthContext';
 import Modal from '../ui/Modal';
+import Icon from '../ui/Icon';
 import styles from './ProductCard.module.css';
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
-import { useAuthContext } from '../../context/AuthContext';
-import Icon from '../ui/Icon';
 
 export default function ProductCard({
   product,

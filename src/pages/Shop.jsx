@@ -34,14 +34,14 @@ export default function Shop() {
           CVXV stands for Copy Paste Cut Paste, representing the meaning of
           being able to find what you want anytime, anywhere. We are a brand
           that offers high-quality products in various fields such as fashion,
-          living, and stationery.
+          living, and stationery.&nbsp;
           <span className={styles.none}>
             We pursue freedom and comfort, and our products are presented with
             designs and quality that reflect these values. With our products,
             which are meticulously crafted and curated, we strive to provide you
             with a sense of individuality and fulfillment.
           </span>
-          Experience the essence of CVXV, where your desires come to life.
+          &nbsp;Experience the essence of CVXV, where your desires come to life.
         </div>
       </div>
       <div className={styles.layout}>

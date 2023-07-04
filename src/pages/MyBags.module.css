@@ -5,10 +5,15 @@
 }
 
 .filter {
+  cursor: pointer;
   color: var(--black-500);
   font-size: var(--font-300);
   text-transform: uppercase;
   margin-bottom: 4rem;
+}
+
+.filter:hover {
+  opacity: 0.5;
 }
 
 .filter:first-child {

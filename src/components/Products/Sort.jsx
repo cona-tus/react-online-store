@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
+import { useLocation } from 'react-router-dom';
+import { options } from '../../util/options';
 import styles from './Sort.module.css';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
-import { useLocation } from 'react-router-dom';
-
-const options = [
-  { label: 'New', value: 'new' },
-  { label: 'Alphabetical', value: 'alphabetical' },
-  { label: 'Low Price', value: 'low price' },
-  { label: 'High Price', value: 'high price' },
-];
 
 export default function Sort({ products, onChange }) {
   const [isOpen, setIsOpen] = useState(false);

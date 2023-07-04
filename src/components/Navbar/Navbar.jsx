@@ -3,10 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
 import useBag from '../../hooks/useBag';
 import Sidebar from '../Sidebar/Sidebar';
-
+import Icon from '../ui/Icon';
 import styles from './Navbar.module.css';
 import { BsListNested } from 'react-icons/bs';
-import Icon from '../ui/Icon';
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
