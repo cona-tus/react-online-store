@@ -1,6 +1,17 @@
 import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function useFilterAndSort(products, option, category) {
+  const navigate = useNavigate();
+
+  if (
+    products &&
+    category &&
+    !products.some((product) => product.category.toLowerCase() === category)
+  ) {
+    navigate('/');
+  }
+
   const filteredData = useMemo(() => {
     return products && category
       ? products.filter(
