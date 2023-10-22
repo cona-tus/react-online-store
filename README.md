@@ -17,7 +17,7 @@ CVXV는 가상의 온라인 스토어입니다. '복사 붙여넣기하듯 언�
 
 웹 사이트에 사용된 로고는 Adobe Illustrator를, 상품 이미지는 Adobe Photoshop을 사용하여 목업 파일을 기반으로 디자인 작업을 진행했습니다.
 
-사용자는 로그인 후 상품을 장바구니나 위시리스트에 추가하거나 삭제하여 쇼핑을 쉽게 즐길 수 있습니다. 뿐만 아니라, 반응형 웹으로 제작되어 다양한 디바이스에서 언제 어디서나 편리하게 이용 가능합니다.
+사용자는 로그인 후 상품을 장바구니나 위시리스트에 추가하거나 삭제하여 쇼핑을 쉽게 즐길 수 있습니다. 뿐만 아니라, CVXV는 반응형 웹으로 제작되어 다양한 디바이스에서 언제 어디서나 편리하게 이용 가능합니다.
 
 <br/>
 
@@ -105,11 +105,11 @@ const router = createBrowserRouter([
 3. [어드민 계정일 경우 상품 등록](#4-3-register-a-new-product)
 4. [상품 카테고리별 필터링 및 상품 정렬](#4-4-filter-and-sort-products)
 5. [상품 상세보기](#4-5-show-product-details)
-6. [장바구니](#4-6-my-bags)
+6. [장바구니 구현](#4-6-my-bags)
 7. [장바구니에 상품 추가](#4-7-add-item-to-cart)
 8. [상품 수량 변경](#4-8-change-quantity)
 9. [장바구니에서 상품 삭제](#4-9-remove-item)
-10. [위시리스트](#4-10-wishlist)
+10. [위시리스트 구현](#4-10-wishlist)
 
 <br/>
 
@@ -881,6 +881,8 @@ export default function useFilterAndSort(products, option, category) {
 
 ### 6-2. Display added Wish item
 
+![bookmark](https://github.com/cona-tus/react-online-store/assets/90844424/4135af8d-346c-4784-ab12-03020c58f23b)
+
 #### 1. 목표
 
 사용자가 위시리스트에 추가한 상품의 북마크 상태를 기억하고 유지하도록 만들고자 했습니다.
@@ -918,4 +920,4 @@ return (
 <br/>
 <br/>
 
-[맨위로 이동하기](#-온라인-스토어-cvxv-프로젝트)
+[맨위로 이동하기](#-창작-온라인-스토어-cvxv-프로젝트)
