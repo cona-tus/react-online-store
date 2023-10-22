@@ -1,4 +1,4 @@
-# 🛍️ 온라인 스토어, 'CVXV' 프로젝트
+# 🛒 창작 온라인 스토어, 'CVXV' 프로젝트
 
 ![cvxv-thumb](https://github.com/cona-tus/react-online-store/assets/90844424/34997e4e-c330-4ddf-b187-7665da9ee848)
 
@@ -42,12 +42,12 @@ CVXV는 가상의 온라인 스토어입니다. '복사 붙여넣기하듯 언�
 
 # 3. Pages
 
-1. Home - 메인 페이지('/')
-2. Shop - 전체 상품 목록 페이지('/shop')
-3. Shop - 카테고리별 상품 목록 페이지('/shop/:category')
-4. ProductDetail - 상품 상세 페이지('/products/:id')
-5. NewProduct - 상품 등록 페이지('/products/new')
-6. MyBags - 장바구니 페이지('/bags')
+1. Home - 메인 페이지(`/`)
+2. Shop - 전체 상품 목록 페이지(`/shop`)
+3. Shop - 카테고리별 상품 목록 페이지(`/shop/:category`)
+4. ProductDetail - 상품 상세 페이지(`/products/:id`)
+5. NewProduct - 상품 등록 페이지(`/products/new`)
+6. MyBags - 장바구니 페이지(`/bags`)
 7. NotFound - 404 페이지
 
 ```jsx
@@ -100,16 +100,16 @@ const router = createBrowserRouter([
 
 ## 4. Main Features
 
-1. [로그인 및 로그아웃]()
-2. [상품 데이터 불러오기]()
-3. [어드민 계정일 경우 상품 등록]()
-4. [상품 카테고리별 필터링 및 상품 정렬]()
-5. [상품 상세보기]()
-6. [장바구니]()
-7. [장바구니에 상품 추가]()
-8. [상품 수량 변경]()
-9. [장바구니에서 상품 삭제]()
-10. [위시리스트]()
+1. [로그인 및 로그아웃](#4-1-login--logout)
+2. [상품 데이터 불러오기](#4-2-show-products)
+3. [어드민 계정일 경우 상품 등록](#4-3-register-a-new-product)
+4. [상품 카테고리별 필터링 및 상품 정렬](#4-4-filter-and-sort-products)
+5. [상품 상세보기](#4-5-show-product-details)
+6. [장바구니](#4-6-my-bags)
+7. [장바구니에 상품 추가](#4-7-add-item-to-cart)
+8. [상품 수량 변경](#4-8-change-quantity)
+9. [장바구니에서 상품 삭제](#4-9-remove-item)
+10. [위시리스트](#4-10-wishlist)
 
 <br/>
 
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
 
 ![cvxv-login](https://github.com/cona-tus/react-online-store/assets/90844424/a274b5ac-4922-47fe-be4e-faaa47012ee7)
 
-사용자 관리는 파이어 베이스의 Authentication에서 제공하는 기능을 통해 이루어집니다.
+사용자 관리는 Firebase의 Authentication에서 제공하는 기능을 통해 이루어집니다.
 
 ```js
 import {
@@ -165,7 +165,7 @@ export function onUserStateChange(callback) {
 
 <br/>
 
-이후 사용자가 어드민 계정인지 판단합니다. 이를 위해 파이어 베이스의 Realtime Database에 저장된 사용자의 admins 배열을 `get` 메서드를 호출하여 가져옵니다. 그리고 사용자의 uid를 포함하고 있는지 확인합니다.
+이후 사용자가 어드민 계정인지 판단합니다. 이를 위해 Firebase의 Realtime Database에 저장된 사용자의 admins 배열을 `get` 메서드를 호출하여 가져옵니다. 그리고 사용자의 uid를 포함하고 있는지 확인합니다.
 
 ```js
 // 어드민 권한 확인
@@ -222,7 +222,7 @@ export function useAuthContext() {
 
 ![cvxv-show](https://github.com/cona-tus/react-online-store/assets/90844424/45032f2e-914e-4ce6-afcf-db0a2d7ab026)
 
-Shop 페이지에서는 카테고리에 해당하는 상품 목록을 볼 수 있습니다. `getProducts` 함수로 파이어 베이스 실시간 데이터베이스에서 'products' 데이터를 가져옵니다. 데이터가 있다면 `Object.values` 메서드로 객체의 값만 가져옵니다.
+Shop 페이지에서는 카테고리에 해당하는 상품 목록을 볼 수 있습니다. `getProducts` 함수로 Firebase Realtime Database에서 'products' 데이터를 가져옵니다. 데이터가 있다면 `Object.values` 메서드로 객체의 값만 가져옵니다.
 
 ```js
 import { ref, get } from 'firebase/database';
@@ -295,7 +295,7 @@ export default function Shop() {
 
 ![cvxv-register](https://github.com/cona-tus/react-online-store/assets/90844424/4da92878-a118-4953-a76a-cefab19b2b1c)
 
-어드민 계정은 '/products/new' 페이지에서 새로운 상품을 등록할 수 있습니다. `addNewProduct()` 함수는 product와 image URL을 전달받아 `set` 메서드를 호출하여 파이어 베이스 실시간 데이터베이스에 데이터를 작성합니다.
+어드민 계정은 '/products/new' 페이지에서 새로운 상품을 등록할 수 있습니다. `addNewProduct()` 함수는 product와 image URL을 전달받아 `ref` 메서드로 경로를 설정하고 `set` 메서드를 호출하여 Firebase Realtime Database에 데이터를 작성합니다.
 
 ```js
 import { ref, set } from 'firebase/database';
@@ -323,7 +323,7 @@ import { getProducts as fetchProducts, addNewProduct } from '../api/firebase';
 export default function useProducts() {
   const queryClient = useQueryClient();
 
-  // const productsQuery...
+  // productsQuery...
 
   const addProduct = useMutation(
     ({ product, url }) => addNewProduct(product, url),
@@ -338,7 +338,7 @@ export default function useProducts() {
 
 <br/>
 
-`uploadImage()` 함수에 사용자가 업로드한 file을 전달하여 클라우디너리 URL을 획득하고, `addProduct.mutate`를 호출하여 상품 등록 요청을 보냅니다.
+NewProduct 컴포넌트에서 사용자가 양식을 제출합니다. `uploadImage()` 함수에 사용자가 업로드한 file을 전달하여 클라우디너리 URL을 획득하고, `addProduct.mutate`를 호출하여 상품 등록 요청을 보냅니다.
 
 ```jsx
 import { uploadImage } from '../api/uploader';
@@ -382,47 +382,33 @@ export default function NewProduct() {
 ### 4-4. Filter and Sort Products
 
 ![cvxv-filter](https://github.com/cona-tus/react-online-store/assets/90844424/e53c4473-8e1b-47b6-8567-820bf19b969e)
-
-사용자는 사이드 바에서 카테고리를 클릭하여 필터링된 상품 목록을 찾을 수 있습니다.
-
 ![cvxv-sort](https://github.com/cona-tus/react-online-store/assets/90844424/5ca4b622-d14d-46e6-98f2-37cca4f44945)
 
-상품 목록은 신상품 순, 이름 순, 낮은 가격 순, 높은 가격 순으로 정렬이 가능합니다.
+사용자는 사이드 바에서 카테고리를 클릭하여 필터링된 상품 목록을 찾을 수 있습니다. 상품 목록은 신상품 순, 이름 순, 낮은 가격 순, 높은 가격 순으로 정렬이 가능합니다.
+
+<br/>
 
 `useFilterAndSort` 커스텀 훅을 만들어 카테고리별로 상품 데이터를 필터링하고, 필터링된 상품들을 옵션에 따라 정렬합니다.
 
+`filter` 메서드를 사용해 category에 해당하는 products만 필터링합니다. `useMemo` 훅을 사용해 products와 category 값이 변경될 때만 filteredData를 다시 계산합니다.
+
 ```jsx
 export default function useFilterAndSort(products, option, category) {
-  const navigate = useNavigate();
-
-  // 일치하는 카테고리가 없다면 Home으로 리다이렉션
-  if (
-    products &&
-    category &&
-    !products.some((product) => product.category.toLowerCase() === category)
-  ) {
-    navigate('/');
-  }
+  const filteredData = useMemo(() => {
+    return products && category
+      ? products.filter(
+          (product) => product.category.toLowerCase() === category
+        )
+      : products || [];
+  }, [products, category]);
 
   // ...
 }
 ```
 
-`filter` 메서드를 사용해 category에 해당하는 products만 필터링합니다. `useMemo` 훅을 사용해 products와 category 값이 변경될 때만 filteredData를 다시 계산합니다.
-
-```jsx
-const filteredData = useMemo(() => {
-  return products && category
-    ? products.filter((product) => product.category.toLowerCase() === category)
-    : products || [];
-}, [products, category]);
-
-// ...
-```
-
 <br/>
 
-`switch` 문과 `sort` 메서드를 사용해 option 값에 따라 각각 동작을 수행하고 정렬합니다.
+`switch` 문과 `sort` 메서드를 사용해 option 값에 따라 각각 동작을 수행하고 정렬된 배열을 반환합니다.
 
 ```jsx
 // ...
@@ -462,41 +448,38 @@ return {
 
 ![cvxv-detail](https://github.com/cona-tus/react-online-store/assets/90844424/a72edddc-9bd0-4ece-a2ce-63ea10c57260)
 
-상품 목록 페이지에서 개별 상품을 클릭하면 React Router의 `useNavigate` 훅을 사용해 상품 상세 페이지(productDetail)로 이동합니다. 이때 state 객체에 product를 전달합니다.
+상품 목록 페이지에서 개별 상품을 클릭하면 React Router의 `useNavigate` 훅을 사용해 상품 상세 페이지(`/products/${id}`)로 이동합니다. 이때 state 객체에 product를 전달합니다.
 
 ```jsx
 export default function ProductCard({
   product,
   product: { id, image, title, price },
 }) {
-  const navigate = useNavigate();
   // ...
+  const navigate = useNavigate();
 
   // handleAdd...
   // handleRemove...
 
   return (
-    <>
-      <li className={styles.item}>
-        <div className={styles.image}>
-          <img
-            src={image}
-            alt={title}
-            onClick={() => {
-              navigate(`/products/${id}`, { state: { product } });
-            }}
-          />
-        </div>
-        // ...
-      </li>
-    </>
+    <li className={styles.item}>
+      <div className={styles.image}>
+        <img
+          src={image}
+          alt={title}
+          onClick={() => {
+            navigate(`/products/${id}`, { state: { product } });
+          }}
+        />
+      </div>
+    </li>
   );
 }
 ```
 
 <br/>
 
-ProductDetail 컴포넌트는 파이어 베이스 실시간 데이터베이스에 저장된 상품의 세부 정보를 표시합니다. `useLocation` 훅을 사용해 전달받은 state 객체에서 product 데이터를 가져와 렌더링합니다.
+ProductDetail 컴포넌트는 Firebase Realtime Database에 저장된 상품의 세부 정보를 표시합니다. `useLocation` 훅을 사용해 전달받은 state 객체에서 product 데이터를 가져와 렌더링합니다.
 
 ```jsx
 export default function ProductDetail() {
@@ -509,6 +492,7 @@ export default function ProductDetail() {
 
   // handleAdd...
   // addOrUpdateBagItem.mutate...
+
   // return...
 }
 ```
@@ -520,7 +504,7 @@ export default function ProductDetail() {
 
 ![cvxv-tab](https://github.com/cona-tus/react-online-store/assets/90844424/bcf2924f-4822-4194-b8d1-ec191ba17da2)
 
-장바구니를 구현하기 위해 파이어 베이스 실시간 데이터베이스에서 userId에 해당하는 bags 정보를 가져옵니다. `get` 메서드와 `ref` 메서드를 사용해 경로를 명시하고, `Object.values`를 사용하여 해당 값만을 읽어옵니다.
+장바구니를 구현하기 위해 Firebase Realtime Database에서 userId에 해당하는 bags 정보를 가져옵니다. `get` 메서드와 `ref` 메서드를 사용해 경로를 명시하고, `Object.values`를 사용하여 해당 값만을 읽어옵니다.
 
 ```js
 import { ref, get } from 'firebase/database';
@@ -539,6 +523,8 @@ export async function getBag(userId) {
 
 장바구니와 관련된 쿼리 로직을 한 곳에서 관리하기 위해 `useBag`이라는 커스텀 훅을 만듭니다. 이렇게 하면 컴포넌트를 간결하게 유지하고, 캐싱된 데이터를 효율적으로 처리할 수 있습니다.
 
+<br/>
+
 사용자 별로 캐시가 이루어지도록 쿼리 키로 uid를 사용합니다. 사용자가 로그인하지 않은 경우 (uid가 falsy일 때), 쿼리가 수행되지 않도록 enabled를 설정합니다. mutation이 성공적으로 완료되면 invalidateQueries를 통해 쿼리를 다시 로드합니다.
 
 ```jsx
@@ -549,6 +535,7 @@ export default function useBag() {
   const { uid } = useAuthContext();
   const queryClient = useQueryClient();
 
+  // 쿼리 생성
   const bagQuery = useQuery(['bags', uid || ''], () => getBag(uid), {
     enabled: !!uid,
   });
@@ -582,7 +569,7 @@ export default function useBag() {
 
 ![cvxv-add](https://github.com/cona-tus/react-online-store/assets/90844424/710c8307-652a-4fb1-ac2c-4b1473414a2b)
 
-사용자가 상품을 장바구니에 추가하면 파이어 베이스 실시간 데이터베이스에 즉각적으로 반영됩니다. `addOrUpdateToBag` 함수에서 `ref` 메서드로 경로를 명시하고, `set` 메서드로 데이터를 저장하거나 업데이트 합니다.
+사용자가 상품을 장바구니에 추가하면 Firebase Realtime Database에 즉각적으로 반영됩니다. `addOrUpdateToBag` 함수에서 `ref` 메서드로 경로를 명시하고, `set` 메서드로 데이터를 저장하거나 업데이트 합니다.
 
 ```js
 import { ref, set } from 'firebase/database';
@@ -600,7 +587,7 @@ export async function addOrUpdateToBag(userId, product) {
 
 ![cvxv-quantity](https://github.com/cona-tus/react-online-store/assets/90844424/a2f05795-7c32-4edd-89fe-4a5f72cc1e26)
 
-사용자는 추가한 상품의 `+` 또는 `-` 아이콘을 클릭하여 수량을 변경할 수 있습니다. BagItem 컴포넌트는 MyBag 컴포넌트로부터 product를 props로 받아와 개별 상품을 표시합니다. 수량을 변경하면 데이터가 변경된 것이므로 캐시를 업데이트합니다.
+사용자는 추가한 상품의 `+` 또는 `-` 아이콘을 클릭하여 수량을 변경할 수 있습니다. `BagItem` 컴포넌트는 MyBag 컴포넌트로부터 product를 props로 받아와 개별 상품을 표시합니다. 수량을 변경하면 데이터가 변경된 것이므로 캐시를 업데이트합니다.
 
 ```jsx
 export default function BagItem({
@@ -655,7 +642,7 @@ export default function BagItem({
 
 <br/>
 
-파이어 베이스 실시간 데이터베이스에서 `ref` 메서드로 경로를 찾아 `remove` 메서드로 상품 데이터를 삭제합니다.
+Firebase Realtime Database에서 `ref` 메서드로 경로를 찾아 `remove` 메서드로 productId에 해당하는 상품 데이터를 삭제합니다.
 
 ```js
 import { ref, remove } from 'firebase/database';
@@ -673,7 +660,7 @@ export async function removeFromBag(userId, productId) {
 
 ![cvxv-wish-add](https://github.com/cona-tus/react-online-store/assets/90844424/cd1f342d-8d7b-40b5-a6f2-38e3424ceb88)
 
-사용자가 ProductCard의 북마크 아이콘을 클릭하여 위시리스트에 상품을 추가 또는 제거할 수 있습니다. 이 기능은 장바구니와 유사한 로직을 사용합니다. 데이터 변경 사항은 파이어 베이스 실시간 데이터베이스에 실시간으로 반영됩니다.
+사용자가 `ProductCard`의 북마크 아이콘을 클릭하여 위시리스트에 상품을 추가 또는 제거할 수 있습니다. 이 기능은 장바구니와 유사한 로직을 사용합니다. 데이터 변경 사항은 Firebase Realtime Database에 실시간으로 반영됩니다.
 
 ```jsx
 export default function ProductCard({
@@ -721,19 +708,6 @@ export default function ProductCard({
 ```
 
 <br/>
-
-useEffect 훅을 사용해 wishProducts가 변경될 때마다 위시리스트에 있는 각 상품의 id를 추출하여 wishId 배열에 저장합니다. 이렇게 하면 페이지 새로고침 시에도 저장된 위시 아이템을 기억합니다.
-
-```jsx
-  // wishId 추출
-  useEffect(() => {
-    const wishIds = wishProducts && wishProducts.map((item) => item.id);
-    setWishId(wishIds);
-  }, [wishProducts]);
-}
-```
-
-<br/>
 <br/>
 
 ## 5. UI/UX
@@ -742,7 +716,7 @@ useEffect 훅을 사용해 wishProducts가 변경될 때마다 위시리스트�
 
 ![cvxv-sidebar](https://github.com/cona-tus/react-online-store/assets/90844424/18bbc8f0-b0e1-4130-b61b-cd9881c64ff6)
 
-Navbar의 메뉴 아이콘을 클릭하면 Sidebar가 나타나고, `x` 또는 바탕화면을 클릭하면 사이드바가 닫힙니다. `Sidebar` 컴포넌트에 사이드 바의 열림 상태(`isOpen`)와 닫힘 함수(`onClose`)를 props로 전달합니다.
+Navbar의 햄버거 아이콘을 클릭하면 Sidebar가 나타나고, `x` 또는 바탕화면을 클릭하면 사이드바가 닫힙니다. `Sidebar` 컴포넌트에 사이드 바의 열림 상태(`isOpen`)와 닫힘 함수(`onClose`)를 props로 전달합니다.
 
 ```jsx
 export default function Navbar() {
@@ -860,3 +834,88 @@ CVXV 웹 사이트는 반응형으로 디자인되어 다양한 디바이스에 
 
 ![cvxv-mobile01](https://github.com/cona-tus/react-online-store/assets/90844424/45a29a7d-5136-4d3b-8c2c-6215d7201f78)
 ![cvxv-mobile02](https://github.com/cona-tus/react-online-store/assets/90844424/c146c2e4-39df-44b0-a056-31e87d16799f)
+
+<br/>
+<br/>
+
+## 6. Trouble shooting
+
+### 6-1. Redirection to Home
+
+![url](https://github.com/cona-tus/react-online-store/assets/90844424/8a8d59b3-f3c4-4844-974b-59382885d71d)
+
+#### 1. 목표
+
+category는 useParams를 사용하여 URL 경로(`/shop/fashion`)에서 동적 파라미터(`fashion`)를 추출한 것입니다. 사용자가 존재하지 않는 category를 포함한 경로로 진입하는 것을 방지하고, 유효한 카테고리에 대한 상품을 보여주고자 했습니다.
+
+<br/>
+
+#### 2. 문제 상황
+
+사용자가 존재하지 않는 category를 가리키는 경로, 예를 들어 `/shop/apple`로 이동할 수 있었습니다. 이로 인해 빈 화면이나 오류 페이지가 렌더링 되었습니다.
+
+<br/>
+
+#### 3. 해결 방법
+
+`Array.some` 메서드는 배열 안의 요소가 주어진 조건을 만족하는지 검사하여 boolean을 반환합니다. 이를 이용해 product.category와 category 파라미터가 일치하지 않으면 `useNavigate` 훅을 사용하여 Home('/')으로 리다이렉션합니다.
+
+```jsx
+export default function useFilterAndSort(products, option, category) {
+  const navigate = useNavigate();
+
+  if (
+    products &&
+    category &&
+    !products.some((product) => product.category.toLowerCase() === category)
+  ) {
+    navigate('/');
+  }
+}
+```
+
+이렇게 함으로써, 사용자가 유효한 카테고리가 아닌 URL로 이동하는 것을 방지하고, 일치하지 않는 카테고리에 대한 상품을 표시하지 않도록 만들었습니다.
+
+<br/>
+<br/>
+
+### 6-2. Display added Wish item
+
+#### 1. 목표
+
+사용자가 위시리스트에 추가한 상품의 북마크 상태를 기억하고 유지하도록 만들고자 했습니다.
+
+<br/>
+
+#### 2. 문제상황
+
+페이지 새로 고침 또는 이동 시 북마크 상태가 초기화되었습니다. 이로 인해 사용자는 위시리스트에 추가한 상품을 식별하는 데 어려움이 있었습니다.
+
+<br/>
+
+#### 3. 해결 방법
+
+`wishId` 배열을 만들어 위시리스트에 추가한 상품의 id를 저장하고 관리합니다. useEffect 훅을 사용해 `wishProducts` 배열이 변경될 때마다 해당 배열에서 상품 id를 추출하여 wishId 배열을 업데이트합니다. 상품 카드를 렌더링할 때, `Array.includes` 메서드 각 상품의 id가 wishId 배열에 포함되어 있는지 확인합니다. 포함되어 있다면 북마크를 채우고, 그렇지 않으면 빈 북마크를 렌더링합니다.
+
+```jsx
+const [wishId, setWishId] = useState([]);
+const hasId = wishId && wishId.includes(id);
+
+useEffect(() => {
+  const wishIds = wishProducts && wishProducts.map((item) => item.id);
+  setWishId(wishIds);
+}, [wishProducts]);
+
+return (
+  <Icon onClick={hasId ? handleRemove : handleAdd} option='mark'>
+    {hasId ? <BsBookmarkFill /> : <BsBookmark />}
+  </Icon>
+);
+```
+
+이렇게 하여 상품의 북마크 상태를 기억하고 유지하여 사용자 경험을 향상시킬 수 있었습니다.
+
+<br/>
+<br/>
+
+[맨위로 이동하기](#-온라인-스토어-cvxv-프로젝트)
