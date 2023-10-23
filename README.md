@@ -29,7 +29,7 @@ CVXV는 가상의 온라인 스토어입니다. '복사 붙여넣기하듯 언�
 <br/>
 <br/>
 
-# 2. Skills
+## 2. Skills
 
 ![JAVASCRIPT](https://img.shields.io/badge/JavaScript-f6e158?style=for-the-badge&logo=JavaScript&logoColor=ffffff)
 ![REACT](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=ffffff)
@@ -40,7 +40,7 @@ CVXV는 가상의 온라인 스토어입니다. '복사 붙여넣기하듯 언�
 <br/>
 <br/>
 
-# 3. Pages
+## 3. Pages
 
 1. Home - 메인 페이지(`/`)
 2. Shop - 전체 상품 목록 페이지(`/shop`)
