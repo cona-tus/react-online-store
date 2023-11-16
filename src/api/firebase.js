@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { v4 as uuid } from 'uuid';
 import {
   getAuth,
-  signInWithPopup,
+  signInWithRedirect,
   GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
@@ -26,7 +26,7 @@ provider.setCustomParameters({
 });
 
 export function login() {
-  signInWithPopup(auth, provider).catch(console.error);
+  signInWithRedirect(auth, provider).catch(console.error);
 }
 
 export function logout() {
