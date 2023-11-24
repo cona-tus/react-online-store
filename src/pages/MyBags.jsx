@@ -27,7 +27,7 @@ export default function MyBags() {
   const isBag = filter && filter === 'bag';
 
   return (
-    <section className={styles.section}>
+    <main className={styles.section}>
       <Header text='My Bags' />
       <ul className={styles.filters}>
         {filters &&
@@ -70,6 +70,6 @@ export default function MyBags() {
           ))}
       </ul>
       {isBag && <OrderSummary />}
-    </section>
+    </main>
   );
 }

@@ -4,6 +4,7 @@ import styles from './Icon.module.css';
 export default function Icon({ onClick, children, option }) {
   return (
     <button
+      type='button'
       onClick={onClick && (() => onClick())}
       className={`${styles.button}  ${option ? styles[option] : ''}`}
     >

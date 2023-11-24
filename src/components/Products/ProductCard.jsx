@@ -58,13 +58,14 @@ export default function ProductCard({
       {success && <Modal text={success} />}
       <li className={styles.item}>
         <div className={styles.image}>
-          <img
-            src={image}
-            alt={title}
+          <button
+            type='button'
             onClick={() => {
               navigate(`/products/${id}`, { state: { product } });
             }}
-          />
+          >
+            <img src={image} alt={title} />
+          </button>
         </div>
         <Icon onClick={hasId ? handleRemove : handleAdd} option='mark'>
           {hasId ? <BsBookmarkFill /> : <BsBookmark />}

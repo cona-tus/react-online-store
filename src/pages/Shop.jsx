@@ -20,7 +20,7 @@ export default function Shop() {
   if (error) return <Modal text={'Something went wrong'} />;
 
   return (
-    <section className={styles.section}>
+    <main className={styles.section}>
       <Header
         text={
           category
@@ -53,6 +53,6 @@ export default function Shop() {
             ))}
         </ul>
       </div>
-    </section>
+    </main>
   );
 }

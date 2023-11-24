@@ -72,7 +72,7 @@ a {
 }
 
 button {
-  outline: none;
+  /* outline: none; */
   border: none;
   background-color: transparent;
   margin: 0;

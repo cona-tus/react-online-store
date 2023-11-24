@@ -33,7 +33,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <section className={styles.section}>
+    <main className={styles.section}>
       {success && <Modal text={success} />}
       <div className={styles.left}>
         <img src={image} alt='title' />
@@ -68,6 +68,6 @@ export default function ProductDetail() {
           <Button onClick={handleAdd}>Add to Bag</Button>
         </div>
       </div>
-    </section>
+    </main>
   );
 }

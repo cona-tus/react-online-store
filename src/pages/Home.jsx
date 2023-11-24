@@ -12,10 +12,10 @@ export default function Home() {
   }, []);
 
   return (
-    <section className={styles.home}>
+    <main className={styles.home}>
       <HomeMain />
       <HomeSlider />
       <HomeGrid />
-    </section>
+    </main>
   );
 }

@@ -33,43 +33,49 @@ export default function Navbar() {
   return (
     <>
       <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
-      <nav className={styles.nav}>
-        <div className={styles.left}>
-          <Icon onClick={handleSidebarOpen} option='menu'>
-            <BsListNested />
-          </Icon>
-          <Link to='/' className={styles.home}>
-            <img
-              src={process.env.PUBLIC_URL + '/images/cvxv-logo-3d.png'}
-              alt='logo'
-            />
-          </Link>
-        </div>
-        <ul className={styles.right}>
-          <li className={styles.link}>
-            {user && (
-              <Link to='/bags'>Bag ({products ? products.length : '0'})</Link>
-            )}
-          </li>
-          {user && (
-            <li className={`${styles.link} ${styles.user}`}>
-              {user.displayName}
+      <header>
+        <nav className={styles.nav}>
+          <div className={styles.left}>
+            <Icon onClick={handleSidebarOpen} option='menu'>
+              <BsListNested />
+            </Icon>
+            <Link to='/' className={styles.home}>
+              <img
+                src={process.env.PUBLIC_URL + '/images/cvxv-logo-3d.png'}
+                alt='logo'
+              />
+            </Link>
+          </div>
+          <ul className={styles.right}>
+            <li className={styles.link}>
+              {user && (
+                <Link to='/bags'>Bag ({products ? products.length : '0'})</Link>
+              )}
             </li>
-          )}
-          <li className={styles.link}>
-            {!user && (
-              <button className={styles.button} onClick={login}>
-                Login
-              </button>
-            )}
             {user && (
-              <button className={styles.button} onClick={logout}>
-                Logout
-              </button>
+              <li className={`${styles.link} ${styles.user}`}>
+                {user.displayName}
+              </li>
             )}
-          </li>
-        </ul>
-      </nav>
+            <li className={styles.link}>
+              {!user && (
+                <button className={styles.button} onClick={login}>
+                  Login
+                </button>
+              )}
+              {user && (
+                <button
+                  type='button'
+                  className={styles.button}
+                  onClick={logout}
+                >
+                  Logout
+                </button>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </header>
     </>
   );
 }

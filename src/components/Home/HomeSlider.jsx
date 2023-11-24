@@ -48,13 +48,14 @@ export default function HomeSlider() {
         {filteredProducts &&
           filteredProducts.map((product) => (
             <SwiperSlide key={product.id} className={styles.slide}>
-              <img
-                src={product.image}
-                alt={product.title}
+              <button
+                type='button'
                 onClick={() => {
                   navigate(`/products/${product.id}`, { state: { product } });
                 }}
-              />
+              >
+                <img src={product.image} alt={product.title} />
+              </button>
               <div className={styles.text}>
                 <p className={styles.title}>{product.title}</p>
                 <p className={styles.tag}>{product.tags.slice(3, 4)}</p>
