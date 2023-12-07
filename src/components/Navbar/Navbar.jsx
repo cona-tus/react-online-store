@@ -32,7 +32,6 @@ export default function Navbar() {
 
   return (
     <>
-      <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
       <header>
         <nav className={styles.nav}>
           <div className={styles.left}>
@@ -76,6 +75,7 @@ export default function Navbar() {
           </ul>
         </nav>
       </header>
+      <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarClose} />
     </>
   );
 }

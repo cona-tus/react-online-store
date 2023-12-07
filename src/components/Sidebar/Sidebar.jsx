@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
 import { link } from '../../util/link';
-import Icon from '../ui/Icon';
 import styles from './Sidebar.module.css';
 import { VscChromeClose } from 'react-icons/vsc';
 
@@ -12,18 +11,27 @@ const Overlay = ({ onClose }) => {
 
 export default function Sidebar({ isOpen, onClose }) {
   const { user } = useAuthContext();
+  const buttonRef = useRef(null);
 
   const sidebarClasses = `${styles.container} ${
     isOpen ? styles.open : styles.close
   }`;
 
+  useEffect(() => {
+    if (isOpen && buttonRef.current) {
+      buttonRef.current.focus();
+    }
+  }, [isOpen]);
+
   return (
     <>
       {isOpen && <Overlay onClose={onClose} />}
       <aside className={sidebarClasses}>
-        <Icon onClick={onClose} option='close'>
-          <VscChromeClose />
-        </Icon>
+        <button ref={buttonRef} onClick={onClose} className={styles.button}>
+          <span className={styles.icon}>
+            <VscChromeClose />
+          </span>
+        </button>
         <ul className={styles.links}>
           {user && user.isAdmin && (
             <li className={styles.link}>

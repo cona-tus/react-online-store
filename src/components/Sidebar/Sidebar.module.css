@@ -22,6 +22,25 @@
   transition: transform 300ms ease-in;
 }
 
+.button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  color: var(--color-white);
+  font-size: var(--font-300);
+}
+
 .links {
   display: flex;
   flex-direction: column;

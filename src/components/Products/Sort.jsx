@@ -23,7 +23,11 @@ export default function Sort({ products, onChange }) {
         <strong className={styles.num}>{products && products.length}</strong>
         Products Found
       </p>
-      <button className={styles.button} onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className={styles.button}
+        id='main'
+        onClick={() => setIsOpen(!isOpen)}
+      >
         Sort By {isOpen ? <BsChevronUp /> : <BsChevronDown />}
       </button>
       {isOpen && (

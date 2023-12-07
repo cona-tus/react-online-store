@@ -1,0 +1,19 @@
+.link {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: var(--font-100);
+  transition: top 0.3s ease-in;
+}
+
+.link:focus {
+  top: 0;
+  transition: top 0.3s ease-in;
+  outline: 2px solid var(--color-focus);
+}

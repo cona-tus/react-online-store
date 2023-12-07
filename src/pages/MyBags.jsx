@@ -29,7 +29,7 @@ export default function MyBags() {
   return (
     <main className={styles.section}>
       <Header text='My Bags' />
-      <ul className={styles.filters}>
+      <ul className={styles.filters} id='main'>
         {filters &&
           filters.map((value, index) => (
             <li key={index}>

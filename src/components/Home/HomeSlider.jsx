@@ -28,7 +28,7 @@ export default function HomeSlider() {
   }, [products]);
 
   return (
-    <section className={styles.container}>
+    <section id='main' className={styles.container}>
       {isLoading && <Modal text='Loading...' />}
       <Swiper
         className={styles.swiper}

@@ -28,9 +28,9 @@ export default function Shop() {
             : 'Shop / All Products'
         }
       />
-      <div className={styles.text}>
+      <section className={styles.text}>
         <h3 className={styles.title}>Copy Paste - Cut Paste</h3>
-        <div className={styles.description}>
+        <p className={styles.description}>
           CVXV stands for Copy Paste Cut Paste, representing the meaning of
           being able to find what you want anytime, anywhere. We are a brand
           that offers high-quality products in various fields such as fashion,
@@ -42,9 +42,9 @@ export default function Shop() {
             with a sense of individuality and fulfillment.
           </span>
           &nbsp;Experience the essence of CVXV, where your desires come to life.
-        </div>
-      </div>
-      <div className={styles.layout}>
+        </p>
+      </section>
+      <section className={styles.layout}>
         <Sort products={sortedData} onChange={setOption} />
         <ul className={styles.items}>
           {sortedData &&
@@ -52,7 +52,7 @@ export default function Shop() {
               <ProductCard key={product.id} product={product} />
             ))}
         </ul>
-      </div>
+      </section>
     </main>
   );
 }
