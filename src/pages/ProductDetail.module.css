@@ -57,6 +57,7 @@
   color: var(--black-400);
   font-size: var(--font-200);
   word-break: break-all;
+  line-height: 1.5;
 }
 
 .category {

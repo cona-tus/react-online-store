@@ -20,6 +20,7 @@
   margin-top: 1rem;
   font-size: var(--font-100);
   word-break: break-all;
+  line-height: 1.5;
 }
 
 .items {
