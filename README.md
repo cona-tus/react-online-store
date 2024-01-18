@@ -708,7 +708,16 @@ export default function ProductCard({
 
 ## 5. UI/UX
 
-### 5-1. Sidebar
+### 5-1. Control Tab Focus
+
+![cvxv-tab](https://github.com/cona-tus/react-online-store/assets/90844424/4c1a8009-0279-4b05-9313-9ee69459d627)
+
+CVXV 웹 사이트는 키보드 사용 보장을 위해 키보드의 탭(Tab) 키로 웹을 탐색할 수 있도록 합니다. 사용자는 탭 키를 눌러 전체 상품 또는 본문으로 건너뛰기 할 수 있습니다.
+
+<br/>
+<br/>
+
+### 5-2. Sidebar
 
 ![cvxv-sidebar](https://github.com/cona-tus/react-online-store/assets/90844424/18bbc8f0-b0e1-4130-b61b-cd9881c64ff6)
 
@@ -824,7 +833,7 @@ export default function Sidebar({ isOpen, onClose }) {
 <br/>
 <br/>
 
-### 5-2. Responsive Web
+### 5-3. Responsive Web
 
 CVXV 웹 사이트는 반응형으로 디자인되어 다양한 디바이스에 최적화된 레이아웃을 볼 수 있습니다. 이로써 사용자가 웹 사이트를 더욱 편리하게 이용할 수 있도록 합니다.
 
