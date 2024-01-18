@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 import Modal from '../../components/ui/Modal';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,7 +14,6 @@ export default function HomeSlider() {
     productsQuery: { isLoading, data: products },
   } = useProducts();
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (products) {
@@ -48,14 +47,9 @@ export default function HomeSlider() {
         {filteredProducts &&
           filteredProducts.map((product) => (
             <SwiperSlide key={product.id} className={styles.slide}>
-              <button
-                type='button'
-                onClick={() => {
-                  navigate(`/products/${product.id}`, { state: { product } });
-                }}
-              >
+              <Link to={`/products/${product.id}`} state={{ product }}>
                 <img src={product.image} alt={product.title} />
-              </button>
+              </Link>
               <div className={styles.text}>
                 <p className={styles.title}>{product.title}</p>
                 <p className={styles.tag}>{product.tags.slice(3, 4)}</p>

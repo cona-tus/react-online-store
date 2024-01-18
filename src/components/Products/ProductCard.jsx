@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useWish from '../../hooks/useWish';
 import { useAuthContext } from '../../context/AuthContext';
 import Modal from '../ui/Modal';
@@ -20,7 +20,6 @@ export default function ProductCard({
 
   const [wishId, setWishId] = useState([]);
   const [success, setSuccess] = useState();
-  const navigate = useNavigate();
 
   const hasId = wishId && wishId.includes(id);
 
@@ -57,16 +56,14 @@ export default function ProductCard({
       {isLoadingWish && <Modal text='Loading...' />}
       {success && <Modal text={success} />}
       <li className={styles.item}>
-        <div className={styles.image}>
-          <button
-            type='button'
-            onClick={() => {
-              navigate(`/products/${id}`, { state: { product } });
-            }}
-          >
-            <img src={image} alt={title} />
-          </button>
-        </div>
+        <Link
+          to={`/products/${id}`}
+          state={{ product }}
+          className={styles.image}
+        >
+          <img src={image} alt={title} />
+        </Link>
+
         <Icon onClick={hasId ? handleRemove : handleAdd} option='mark'>
           {hasId ? <BsBookmarkFill /> : <BsBookmark />}
         </Icon>

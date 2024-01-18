@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Marquee from 'react-fast-marquee';
@@ -10,6 +10,8 @@ const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 export default function HomeMain() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -75,8 +77,12 @@ export default function HomeMain() {
           &nbsp;&nbsp;Fly Beyond Boundaries, Experience the Freedom
         </Marquee>
         <div className={styles['button-container']}>
-          <Button>
-            <Link to='/shop'>Shop Now</Link>
+          <Button
+            onClick={() => {
+              navigate('/shop');
+            }}
+          >
+            Shop Now
           </Button>
         </div>
       </div>
