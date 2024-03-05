@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
 import useBag from '../../hooks/useBag';
 import Sidebar from '../Sidebar/Sidebar';
@@ -17,6 +17,7 @@ export default function Navbar() {
   } = useBag();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSidebarOpen = () => {
     setIsSidebarOpen(true);
@@ -58,7 +59,13 @@ export default function Navbar() {
             )}
             <li className={styles.link}>
               {!user && (
-                <button className={styles.button} onClick={login}>
+                <button
+                  className={styles.button}
+                  onClick={() => {
+                    login();
+                    navigate('/');
+                  }}
+                >
                   Login
                 </button>
               )}
